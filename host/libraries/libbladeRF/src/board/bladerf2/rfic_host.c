@@ -93,7 +93,7 @@ static int _rfic_host_initialize(struct bladerf *dev)
 
     board_data->rfic_init_params = (config_gpio & BLADERF_GPIO_PACKET_CORE_PRESENT) ?
                 (void *)&bladerf2_rfic_init_params_fastagc_burst :
-                (void *)&bladerf2_rfic_init_params_fastagc_burst;
+                (void *)&bladerf2_rfic_init_params;
 
     /* Initialize AD9361 */
     CHECK_AD936X(ad9361_init(&phy, (AD9361_InitParam *)board_data->rfic_init_params, dev));

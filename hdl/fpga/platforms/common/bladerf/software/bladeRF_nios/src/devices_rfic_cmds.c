@@ -32,7 +32,7 @@
 #include "ad936x_helpers.h"
 #include "devices_rfic.h"
 
-extern AD9361_InitParam bladerf2_rfic_init_params_fastagc_burst;
+extern AD9361_InitParam bladerf2_rfic_init_params;
 extern AD9361_RXFIRConfig bladerf2_rfic_rx_fir_config;
 extern AD9361_TXFIRConfig bladerf2_rfic_tx_fir_config;
 extern AD9361_RXFIRConfig bladerf2_rfic_rx_fir_config_dec2;
@@ -125,7 +125,7 @@ static bool _rfic_deinitialize(struct rfic_state *state)
  */
 static bool _rfic_initialize(struct rfic_state *state)
 {
-    AD9361_InitParam *init_param = &bladerf2_rfic_init_params_fastagc_burst;
+    AD9361_InitParam *init_param = &bladerf2_rfic_init_params;
     bladerf_direction dir;
     bladerf_channel ch;
     bladerf_frequency init_freq;
@@ -223,7 +223,7 @@ static bool _rfic_initialize(struct rfic_state *state)
  */
 static bool _rfic_standby(struct rfic_state *state)
 {
-    AD9361_InitParam *init_param = &bladerf2_rfic_init_params_fastagc_burst;
+    AD9361_InitParam *init_param = &bladerf2_rfic_init_params;
     bladerf_channel ch;
     size_t i;
 
