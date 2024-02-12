@@ -1,3 +1,7 @@
+bladerf (2024.02) unstable; urgency=high
+
+  * Enable Fast-AGC and TDD
+
 bladerf (2021.10) unstable; urgency=low
 
   * Release for 2021.10 tag

@@ -1791,3 +1791,6 @@ obj-x86_64-linux-gnu/host/utilities/bladeRF-fsk/c/CMakeFiles/bladeRF-fsk_test_su
 obj-x86_64-linux-gnu/host/utilities/bladeRF-fsk/c/CMakeFiles/bladeRF-fsk_test_suite.dir/link.txt
 obj-x86_64-linux-gnu/host/utilities/bladeRF-fsk/c/CMakeFiles/bladeRF-fsk_test_suite.dir/progress.make
 thirdparty/analogdevicesinc/no-OS
+debian/.debhelper/libbladerf2/dbgsym-root/usr/lib/debug/.build-id/bb/66d385c0823c69937c5a7de14ff89738ece296.debug
+debian/.debhelper/bladerf/dbgsym-root/usr/lib/debug/.build-id/5b/4a0a4950694402ff1589ea4e1aaf88a3aa181e.debug
+debian/.debhelper/bladerf/dbgsym-root/usr/lib/debug/.build-id/d9/5470fc0051fa16c214678f32f5457b7e8fb0f5.debug
