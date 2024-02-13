@@ -200,9 +200,9 @@ AD9361_InitParam bladerf2_rfic_init_params = {
 
     /* External LNA Control */
     /* bladeRF Micro: GPO_0 is TP3, GPO_1 is TP4 */
-    0,              // N/A when elna_rx(1,2)_gpo(0,1)_control_enable = 0                // elna_settling_delay_ns *** adi,elna-settling-delay-ns
-    0,              // MUST be 0 when elna_rx(1,2)_gpo(0,1)_control_enable = 0          // elna_gain_mdB *** adi,elna-gain-mdB
-    0,              // MUST be 0 when elna_rx(1,2)_gpo(0,1)_control_enable = 0          // elna_bypass_loss_mdB *** adi,elna-bypass-loss-mdB
+    0,              // We have a static LNA, so the settling delay must be 0!           // elna_settling_delay_ns *** adi,elna-settling-delay-ns
+    20000,              // The ZX60-53LNB-S+ has a gain of ~20db = 20,000mdb            // elna_gain_mdB *** adi,elna-gain-mdB
+    0,              // We assume the LNA to be active at all times                      // elna_bypass_loss_mdB *** adi,elna-bypass-loss-mdB
     0,              // Ext LNA Ctrl bit in Rx1 gain table does NOT set GPO0 state       // elna_rx1_gpo0_control_enable *** adi,elna-rx1-gpo0-control-enable
     0,              // Ext LNA Ctrl bit in Rx2 gain table does NOT set GPO1 state       // elna_rx2_gpo1_control_enable *** adi,elna-rx2-gpo1-control-enable
     0,              // N/A when elna_rx(1,2)_gpo(0,1)_control_enable = 0                // elna_gaintable_all_index_enable *** adi,elna-gaintable-all-index-enable
