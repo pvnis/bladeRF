@@ -31,10 +31,13 @@ AD9361_InitParam bladerf2_rfic_init_params = {
     1,              // use 2Rx2Tx mode                                                  // two_rx_two_tx_mode_enable *** adi,2rx-2tx-mode-enable
     1,              // N/A when two_rx_two_tx_mode_enable = 1                           // one_rx_one_tx_mode_use_rx_num *** adi,1rx-1tx-mode-use-rx-num
     1,              // N/A when two_rx_two_tx_mode_enable = 1                           // one_rx_one_tx_mode_use_tx_num *** adi,1rx-1tx-mode-use-tx-num
+
     1,              // use FDD mode                                                     // frequency_division_duplex_mode_enable *** adi,frequency-division-duplex-mode-enable
-    1,              // use independent FDD mode                                         // frequency_division_duplex_independent_mode_enable *** adi,frequency-division-duplex-independent-mode-enable
-    0,              // N/A when frequency_division_duplex_mode_enable = 1               // tdd_use_dual_synth_mode_enable *** adi,tdd-use-dual-synth-mode-enable
+    0,              // use independent FDD mode                                         // frequency_division_duplex_independent_mode_enable *** adi,frequency-division-duplex-independent-mode-enable
+    1,              // N/A when frequency_division_duplex_mode_enable = 1               // tdd_use_dual_synth_mode_enable *** adi,tdd-use-dual-synth-mode-enable
     0,              // N/A when frequency_division_duplex_mode_enable = 1               // tdd_skip_vco_cal_enable *** adi,tdd-skip-vco-cal-enable
+
+
     0,              // TX fastlock delay = 0 ns                                         // tx_fastlock_delay_ns *** adi,tx-fastlock-delay-ns
     0,              // RX fastlock delay = 0 ns                                         // rx_fastlock_delay_ns *** adi,rx-fastlock-delay-ns
     0,              // RX fastlock pin control disabled                                 // rx_fastlock_pincontrol_enable *** adi,rx-fastlock-pincontrol-enable
@@ -78,8 +81,8 @@ AD9361_InitParam bladerf2_rfic_init_params = {
     CLKOUT_DISABLE, // disable clkout pin (see enum ad9361_clkout)                      // clk_output_mode_select *** adi,clk-output-mode-select
 
     /* Gain Control */
-    RF_GAIN_SLOWATTACK_AGC, // RX1 BLADERF_GAIN_DEFAULT = slow attack AGC               // gc_rx1_mode *** adi,gc-rx1-mode
-    RF_GAIN_SLOWATTACK_AGC, // RX2 BLADERF_GAIN_DEFAULT = slow attack AGC               // gc_rx2_mode *** adi,gc-rx2-mode
+    RF_GAIN_FASTATTACK_AGC, // RX1 BLADERF_GAIN_DEFAULT = slow attack AGC               // gc_rx1_mode *** adi,gc-rx1-mode
+    RF_GAIN_FASTATTACK_AGC, // RX2 BLADERF_GAIN_DEFAULT = slow attack AGC               // gc_rx2_mode *** adi,gc-rx2-mode
     58,             // magic AGC setting, see AD9361 docs                               // gc_adc_large_overload_thresh *** adi,gc-adc-large-overload-thresh
     4,              // magic AGC setting, see AD9361 docs                               // gc_adc_ovr_sample_size *** adi,gc-adc-ovr-sample-size
     47,             // magic AGC setting, see AD9361 docs                               // gc_adc_small_overload_thresh *** adi,gc-adc-small-overload-thresh
@@ -319,8 +322,8 @@ AD9361_InitParam bladerf2_rfic_init_params_fastagc_burst = {
     1,              // use 2Rx2Tx mode                                                  // two_rx_two_tx_mode_enable *** adi,2rx-2tx-mode-enable
     1,              // N/A when two_rx_two_tx_mode_enable = 1                           // one_rx_one_tx_mode_use_rx_num *** adi,1rx-1tx-mode-use-rx-num
     1,              // N/A when two_rx_two_tx_mode_enable = 1                           // one_rx_one_tx_mode_use_tx_num *** adi,1rx-1tx-mode-use-tx-num
-    1,              // use FDD mode                                                     // frequency_division_duplex_mode_enable *** adi,frequency-division-duplex-mode-enable
-    1,              // use independent FDD mode                                         // frequency_division_duplex_independent_mode_enable *** adi,frequency-division-duplex-independent-mode-enable
+    0,              // use FDD mode                                                     // frequency_division_duplex_mode_enable *** adi,frequency-division-duplex-mode-enable
+    0,              // use independent FDD mode                                         // frequency_division_duplex_independent_mode_enable *** adi,frequency-division-duplex-independent-mode-enable
     0,              // N/A when frequency_division_duplex_mode_enable = 1               // tdd_use_dual_synth_mode_enable *** adi,tdd-use-dual-synth-mode-enable
     0,              // N/A when frequency_division_duplex_mode_enable = 1               // tdd_skip_vco_cal_enable *** adi,tdd-skip-vco-cal-enable
     0,              // TX fastlock delay = 0 ns                                         // tx_fastlock_delay_ns *** adi,tx-fastlock-delay-ns
@@ -450,7 +453,7 @@ AD9361_InitParam bladerf2_rfic_init_params_fastagc_burst = {
     /* RSSI Control */
     1,              // settling delay on RSSI algo restart = 1 μs                       // rssi_delay *** adi,rssi-delay
     1000,           // total RSSI measurement duration = 1000 μs                        // rssi_duration *** adi,rssi-duration
-    GAIN_CHANGE_OCCURS, // reset RSSI accumulator on gain change event                  // rssi_restart_mode *** adi,rssi-restart-mode
+    AGC_IN_FAST_ATTACK_MODE_LOCKS_THE_GAIN, // reset RSSI accumulator on gain change event                  // rssi_restart_mode *** adi,rssi-restart-mode
     0,              // RSSI control values are in microseconds                          // rssi_unit_is_rx_samples_enable *** adi,rssi-unit-is-rx-samples-enable
     1,              // wait 1 μs between RSSI measurements                              // rssi_wait *** adi,rssi-wait
 

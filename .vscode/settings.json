@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "devices.h": "c",
+        "ad9361_api.h": "c"
+    }
+}
