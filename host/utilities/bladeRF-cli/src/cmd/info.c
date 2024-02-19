@@ -69,7 +69,14 @@ int cmd_info(struct cli_state *state, int argc, char **argv)
 
     usb_speed = bladerf_device_speed(state->dev);
 
+
+    // Print the mode of the RFIC
+
+    uint8_t mode;
+    status = bladerf_get_rfic_register(state->dev, 0x0013, &mode);
+
     printf("\n");
+    printf("  FDD Enabled by Default:              %s\n", mode ? "yes" : "no");
     printf("  Board:                    %s %s (%s)\n", info.manufacturer,
            info.product, bladerf_get_board_name(state->dev));
     printf("  Serial #:                 %s\n", info.serial);
