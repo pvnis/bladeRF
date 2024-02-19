@@ -31,13 +31,10 @@ AD9361_InitParam bladerf2_rfic_init_params = {
     1,              // use 2Rx2Tx mode                                                  // two_rx_two_tx_mode_enable *** adi,2rx-2tx-mode-enable
     1,              // N/A when two_rx_two_tx_mode_enable = 1                           // one_rx_one_tx_mode_use_rx_num *** adi,1rx-1tx-mode-use-rx-num
     1,              // N/A when two_rx_two_tx_mode_enable = 1                           // one_rx_one_tx_mode_use_tx_num *** adi,1rx-1tx-mode-use-tx-num
-
-    1,              // use FDD mode                                                     // frequency_division_duplex_mode_enable *** adi,frequency-division-duplex-mode-enable
+    0,              // use FDD mode                                                     // frequency_division_duplex_mode_enable *** adi,frequency-division-duplex-mode-enable
     0,              // use independent FDD mode                                         // frequency_division_duplex_independent_mode_enable *** adi,frequency-division-duplex-independent-mode-enable
     1,              // N/A when frequency_division_duplex_mode_enable = 1               // tdd_use_dual_synth_mode_enable *** adi,tdd-use-dual-synth-mode-enable
-    0,              // N/A when frequency_division_duplex_mode_enable = 1               // tdd_skip_vco_cal_enable *** adi,tdd-skip-vco-cal-enable
-
-
+    1,              // N/A when frequency_division_duplex_mode_enable = 1               // tdd_skip_vco_cal_enable *** adi,tdd-skip-vco-cal-enable
     0,              // TX fastlock delay = 0 ns                                         // tx_fastlock_delay_ns *** adi,tx-fastlock-delay-ns
     0,              // RX fastlock delay = 0 ns                                         // rx_fastlock_delay_ns *** adi,rx-fastlock-delay-ns
     0,              // RX fastlock pin control disabled                                 // rx_fastlock_pincontrol_enable *** adi,rx-fastlock-pincontrol-enable
@@ -54,7 +51,7 @@ AD9361_InitParam bladerf2_rfic_init_params = {
     0,              // don't use improved RX QEC tracking                               // qec_tracking_slow_mode_enable *** adi,qec-tracking-slow-mode-enable
 
     /* ENSM Control */
-    0,              // use level mode on ENABLE and TXNRX pins                          // ensm_enable_pin_pulse_mode_enable *** adi,ensm-enable-pin-pulse-mode-enable
+    1,              // use level mode on ENABLE and TXNRX pins                          // ensm_enable_pin_pulse_mode_enable *** adi,ensm-enable-pin-pulse-mode-enable
     0,              // use SPI writes for ENSM state, not ENABLE/TXNRX pins             // ensm_enable_txnrx_control_enable *** adi,ensm-enable-txnrx-control-enable
 
     /* LO Control */
@@ -492,7 +489,7 @@ AD9361_InitParam bladerf2_rfic_init_params_fastagc_burst = {
     /* External LNA Control */
     /* bladeRF Micro: GPO_0 is TP3, GPO_1 is TP4 */
     0,              // N/A when elna_rx(1,2)_gpo(0,1)_control_enable = 0                // elna_settling_delay_ns *** adi,elna-settling-delay-ns
-    0,              // MUST be 0 when elna_rx(1,2)_gpo(0,1)_control_enable = 0          // elna_gain_mdB *** adi,elna-gain-mdB
+    20000,              // MUST be 0 when elna_rx(1,2)_gpo(0,1)_control_enable = 0          // elna_gain_mdB *** adi,elna-gain-mdB
     0,              // MUST be 0 when elna_rx(1,2)_gpo(0,1)_control_enable = 0          // elna_bypass_loss_mdB *** adi,elna-bypass-loss-mdB
     0,              // Ext LNA Ctrl bit in Rx1 gain table does NOT set GPO0 state       // elna_rx1_gpo0_control_enable *** adi,elna-rx1-gpo0-control-enable
     0,              // Ext LNA Ctrl bit in Rx2 gain table does NOT set GPO1 state       // elna_rx2_gpo1_control_enable *** adi,elna-rx2-gpo1-control-enable
